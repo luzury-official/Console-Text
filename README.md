@@ -1,20 +1,20 @@
 # ConText
 
-**ConText** (Console-Text) — это минималистичный текстовый и кодовый редактор для Linux, работающий прямо в терминале.
+**ConText** (Console-Text) is a minimalist text and code editor for Linux that runs directly in the terminal.
 
 ## Features
-- Работа со стрелками (вверх, вниз, влево, вправо)
-- Вставка и удаление символов
-- Поддержка Backspace и Delete
-- Переход между строками
-- Сохранение файла (`Ctrl + S`)
-- Выход (`Ctrl + Q`)
-- Сохранить и выйти (`Ctrl + X`)
+- Arrow keys (up, down, left, right)
+- Insert and delete characters
+- Backspace and Delete support
+- Jump between lines
+- Save file (`Ctrl + S`)
+- Quit (`Ctrl + Q`)
+- Save and quit (`Ctrl + X`)
 
 ## Build
 
 ```bash
-gcc main.c -o ConText
+gcc main.c src/file.c src/screen.c -Iinclude -o ConText
 ```
 
 Run
