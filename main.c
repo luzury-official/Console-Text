@@ -47,6 +47,13 @@ void save_file() {
     fclose(f);
 }
 
+void ensure_nonempty() {
+    if(num_lines == 0) {
+        lines[0][0] = '\0';
+        num_lines = 1;
+    }
+}
+
 //  |================================|
 //  |             SCREEN             |
 //  |================================|
@@ -154,6 +161,7 @@ int main(int argc, char *argv[]){
     
     filename = argv[1];
     load_file(); 
+    ensure_nonempty();
     
     enter_alternate_screen();
     enable_raw_mode();
