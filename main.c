@@ -115,14 +115,14 @@ void draw_screen(int cursor_row, int cursor_col, int row_offset) {
     int rows = w.ws_row;
     int cols = w.ws_col;
 
-    // Очистка экрана
+    // Clear screen
     write(STDOUT_FILENO, "\033[H\033[J", 6);
 
-    // Верхняя панель
+    // File name
     print_centered(filename, 1, "black");
 
-    // Основной текст с прокруткой
-    int visible_rows = rows - 2; // 1 сверху + 1 снизу
+    // Text
+    int visible_rows = rows - 2;
     for (int i = 0; i < visible_rows; i++) {
         int line_index = row_offset + i;
         if (line_index >= num_lines) break;
@@ -130,12 +130,12 @@ void draw_screen(int cursor_row, int cursor_col, int row_offset) {
         printf("\033[%d;1H%s", i + 2, lines[line_index]);
     }
 
-    // Нижняя панель
+    // Hotkeys
     print_centered("Ctrl+Q=Quit  Ctrl+S=Save  Ctrl+X=Save & Exit",
                    rows,
                    "black");
 
-    // Курсор
+    // Cursor
     printf("\033[%d;%dH", cursor_row - row_offset + 2, cursor_col + 1);
 
     fflush(stdout);
@@ -305,4 +305,4 @@ int main(int argc, char *argv[]){
     exit_alternate_screen();
     
     return 0;
-}// placeholder
+}

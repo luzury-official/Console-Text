@@ -23,5 +23,4 @@ Run
 ./ConText <file>
 ```
 License
-
 GPL v3
